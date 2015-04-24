@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/0.4.0/javafx.plugin"
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    mainClass = 'HelloWorld'
+}
+
