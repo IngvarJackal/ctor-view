@@ -7,6 +7,6 @@ repositories {
 }
 
 javafx {
-    mainClass = 'HelloWorld'
+    mainClass = 'Main'
 }
 
