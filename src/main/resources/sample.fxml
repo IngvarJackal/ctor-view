@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -8,21 +12,222 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SampleController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SampleController">
    <children>
-      <GridPane fx:id="helloButton">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox>
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setMessage" text="Hello, world!" />
-            <Button fx:id="clearButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearMessage" text="Clear" GridPane.columnIndex="1" />
+            <BorderPane HBox.hgrow="ALWAYS">
+               <left>
+                  <ToolBar BorderPane.alignment="CENTER">
+                    <items>
+                      <Button mnemonicParsing="false" prefWidth="25.0" text="B">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="25.0" text="B">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="25.0" text="B">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="25.0" text="B">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="25.0" text="B">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                    </items>
+                  </ToolBar>
+               </left>
+               <right>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label minHeight="25.0" text="Select the project">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ChoiceBox prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets top="7.5" />
+                     </padding>
+                  </HBox>
+               </right>
+            </BorderPane>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
          </children>
-      </GridPane>
-      <Label fx:id="helloLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textAlignment="CENTER" />
+      </HBox>
+      <SplitPane dividerPositions="0.9" VBox.vgrow="ALWAYS">
+         <items>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Untitled Tab 1">
+                     <content>
+                        <SplitPane dividerPositions="0.9" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                           <items>
+                              <AreaChart minHeight="0.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                              <TextArea minHeight="0.0" text="&gt; summary(mtcars)&#10;      mpg             cyl             disp             hp       &#10; Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  &#10; 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  &#10; Median :19.20   Median :6.000   Median :196.3   Median :123.0  &#10; Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  &#10; 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  &#10; Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  &#10;      drat             wt             qsec             vs        &#10; Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  &#10; 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  &#10; Median :3.695   Median :3.325   Median :17.71   Median :0.0000  &#10; Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  &#10; 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  &#10; Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  &#10;       am              gear            carb      &#10; Min.   :0.0000   Min.   :3.000   Min.   :1.000  &#10; 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  &#10; Median :0.0000   Median :4.000   Median :2.000  &#10; Mean   :0.4062   Mean   :3.688   Mean   :2.812  &#10; 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  &#10; Max.   :1.0000   Max.   :5.000   Max.   :8.000">
+                                 <font>
+                                    <Font name="Courier New" size="13.0" />
+                                 </font>
+                              </TextArea>
+                           </items>
+                        </SplitPane>
+                     </content>
+                </Tab>
+                <Tab text="Untitled Tab 2">
+                     <content>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <StackedBarChart>
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </StackedBarChart>
+                              <StackedBarChart GridPane.columnIndex="1">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </StackedBarChart>
+                              <StackedBarChart GridPane.rowIndex="1">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </StackedBarChart>
+                              <StackedBarChart GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </StackedBarChart>
+                           </children>
+                        </GridPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Accordion minWidth="0.0">
+               <panes>
+                  <TitledPane animated="false" text="options">
+                     <content>
+                        <VBox>
+                           <children>
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <HBox>
+                                 <children>
+                                    <ChoiceBox prefWidth="150.0" />
+                                    <Label prefHeight="25.0" text="Label" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <ComboBox prefWidth="150.0" />
+                                    <Label prefHeight="25.0" text="Label">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="options">
+                     <content>
+                        <VBox>
+                           <children>
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" />
+                              <HBox>
+                                 <children>
+                                    <ChoiceBox prefWidth="150.0" />
+                                    <Label prefHeight="25.0" text="Label" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <ComboBox prefWidth="150.0" />
+                                    <Label prefHeight="25.0" text="Label">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+         </items>
+      </SplitPane>
    </children>
 </VBox>
