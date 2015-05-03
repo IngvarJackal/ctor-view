@@ -1,16 +1,24 @@
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.HBox;
 
 public class SampleController {
 
 
-    public Label helloLabel;
+    public HBox optionsHBox;
+    public Button expandOptionsButton;
 
-    public void setMessage(ActionEvent actionEvent) {
-        helloLabel.setText("Hello, world!");
-    }
+    private boolean expandedOptions = true;
 
-    public void clearMessage(ActionEvent actionEvent) {
-        helloLabel.setText("");
+    public void expandOptions(ActionEvent actionEvent) {
+        if (expandedOptions) {
+            optionsHBox.setPrefWidth(0.0);
+            expandedOptions = false;
+        } else {
+            optionsHBox.setPrefWidth(optionsHBox.USE_COMPUTED_SIZE);
+            expandedOptions = true;
+        }
     }
 }

@@ -12,6 +12,7 @@ public class Main extends Application {
         primaryStage.setTitle("ctor-viewer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
 
